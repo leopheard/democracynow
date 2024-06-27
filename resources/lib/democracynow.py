@@ -12,10 +12,15 @@ def get_soup2(url2):
     soup2 = BeautifulSoup(page.text, 'html.parser')
     print("type: ", type(soup2))
     return soup2
+def get_soup3(url3):
+    page = requests.get(url3)
+    soup3 = BeautifulSoup(page.text, 'html.parser')
+    print("type: ", type(soup3))
+    return soup3
 
 def get_playable_DN1(soup1):
     subjects = []
-    for content in soup1.find_all('item', limit=20):
+    for content in soup1.find_all('item', limit=25):
         try:
             link = content.find('enclosure')
             link = link.get('url')
@@ -69,6 +74,37 @@ def get_playable_DN2(soup2):
 def compile_playable_DN2(playable_DN2):
     items = []
     for podcast in playable_DN2:
+        items.append({
+            'label': podcast['title'],
+            'thumbnail': podcast['thumbnail'],
+            'path': podcast['url'],
+            'is_playable': True,
+    })
+    return items
+
+def get_playable_DN3(soup3):
+    subjects = []
+    for content in soup3.find_all('item', limit=25):
+        try:
+            link = content.find('enclosure')
+            link = link.get('url')
+            print("\n\nLink: ", link)
+            title = content.find('title')
+            title = title.get_text()
+            thumbnail = content.find('media:thumbnail')
+            thumbnail = thumbnail.get('url')
+        except AttributeError:
+            continue
+        item = {
+                'url': link,
+                'title': title,
+                'thumbnail': thumbnail,
+        }
+        subjects.append(item)
+    return subjects
+def compile_playable_DN3(playable_DN3):
+    items = []
+    for podcast in playable_DN3:
         items.append({
             'label': podcast['title'],
             'thumbnail': podcast['thumbnail'],

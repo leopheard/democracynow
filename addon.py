@@ -3,7 +3,8 @@ from resources.lib import democracynow
 
 plugin = Plugin()
 url1 = "https://www.democracynow.org/podcast-video.xml"
-url2 = "https://www.democracynow.org/podcast.xml"
+url1 = "https://www.democracynow.org/podcast-video.xml"
+url3 = "https://www.democracynow.org/podcast.xml"
 @plugin.route('/')
 def main_menu():
     items = [
@@ -14,6 +15,10 @@ def main_menu():
         {
             'label': plugin.get_string(30002),
             'path': plugin.url_for('episodes2'),
+            'thumbnail': "https://assets.democracynow.org/assets/DN-Podcast-AUDIO-1d5df65d8936dcfd1387274443b3e0713c5f15dd3fa400331229f4ab39b5c19e.jpg"},
+        {
+            'label': plugin.get_string(30003),
+            'path': plugin.url_for('episodes3'),
             'thumbnail': "https://assets.democracynow.org/assets/DN-Podcast-AUDIO-1d5df65d8936dcfd1387274443b3e0713c5f15dd3fa400331229f4ab39b5c19e.jpg"},
     ]
     return items
@@ -29,6 +34,12 @@ def episodes2():
     soup2 = democracynow.get_soup1(url2)
     playable_DN2 = democracynow.get_playable_DN2(soup2)
     items = democracynow.compile_playable_DN2(playable_DN2)
+    return items
+@plugin.route('/episodes3/')
+def episodes3():
+    soup3 = democracynow.get_soup3(url3)
+    playable_DN3 = democracynow.get_playable_DN3(soup3)
+    items = democracynow.compile_playable_DN3(playable_DN3)
     return items
 if __name__ == '__main__':
     plugin.run()

@@ -23,7 +23,7 @@ msgid "Democracy Now! - web exclusives"
 msgstr ""
 
 msgctxt "#30003"
-msgid ""
+msgid "Democracy Now! - audio"
 msgstr ""
 
 # empty string with id 32003
