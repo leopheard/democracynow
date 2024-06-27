@@ -15,15 +15,15 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgctxt "#30001"
-msgid "Democracy Now! - daily news"
+msgid "Democracy Now! - Daily News (video)"
 msgstr ""
 
 msgctxt "#30002"
-msgid "Democracy Now! - web exclusives"
+msgid "Democracy Now! - Web Exclusives (video)"
 msgstr ""
 
 msgctxt "#30003"
-msgid "Democracy Now! - audio"
+msgid "Democracy Now! - Daily News (audio)"
 msgstr ""
 
 # empty string with id 32003
