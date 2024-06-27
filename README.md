@@ -1,6 +1,6 @@
 <a href="https://kodi.tv">KODI<a> (XBMC/OSMC/Firestick) audio addon for the <a href="www.democracynow.org">Democracy Now!</a> news show.<br>
 
-<img src="https://github.com/leopheard/democracynow/blob/master/resources/media/icon.jpg?raw=true" width="200" height="200" alt="Democracy Now!"><br>
+<img src="https://github.com/leopheard/democracynow/blob/master/resources/media/icon.jpg?raw=true" width="160" height="160" alt="Democracy Now!"><br>
 
 Democracy Now! is an independent daily TV & radio news program, hosted by award-winning journalists Amy Goodman and Juan González. We provide daily global news headlines, in-depth interviews and investigative reports without any advertisements or government funding. Our programming shines a spotlight on corporate and government abuses of power and lifts up the stories of ordinary people working to make change in extraordinary times. Democracy Now! is live weekdays at 8am ET and available 24/7 through our website and podcasts.<br>
 
