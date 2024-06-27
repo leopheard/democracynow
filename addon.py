@@ -3,7 +3,7 @@ from resources.lib import democracynow
 
 plugin = Plugin()
 url1 = "https://www.democracynow.org/podcast-video.xml"
-url1 = "https://www.democracynow.org/podcast-video.xml"
+url2 = "https://www.democracynow.org/podcast-video.xml"
 url3 = "https://www.democracynow.org/podcast.xml"
 @plugin.route('/')
 def main_menu():
@@ -31,7 +31,7 @@ def episodes1():
     return items
 @plugin.route('/episodes2/')
 def episodes2():
-    soup2 = democracynow.get_soup1(url2)
+    soup2 = democracynow.get_soup2(url2)
     playable_DN2 = democracynow.get_playable_DN2(soup2)
     items = democracynow.compile_playable_DN2(playable_DN2)
     return items
