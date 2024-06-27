@@ -7,18 +7,23 @@ def get_soup1(url1):
     soup1 = BeautifulSoup(page.text, 'html.parser')
     print("type: ", type(soup1))
     return soup1
+def get_soup2(url2):
+    page = requests.get(url2)
+    soup2 = BeautifulSoup(page.text, 'html.parser')
+    print("type: ", type(soup2))
+    return soup2
 
-def get_playable_podcast1(soup1):
+def get_playable_DN1(soup1):
     subjects = []
-    for content in soup1.find_all('item', limit=14):
+    for content in soup1.find_all('item', limit=20):
         try:
             link = content.find('enclosure')
             link = link.get('url')
             print("\n\nLink: ", link)
             title = content.find('title')
             title = title.get_text()
-            thumbnail = content.find('itunes:image')
-            thumbnail = thumbnail.get('href')
+            thumbnail = content.find('media:thumbnail')
+            thumbnail = thumbnail.get('url')
         except AttributeError:
             continue
         item = {
@@ -28,9 +33,9 @@ def get_playable_podcast1(soup1):
         }
         subjects.append(item)
     return subjects
-def compile_playable_podcast1(playable_podcast1):
+def compile_playable_DN1(playable_DN1):
     items = []
-    for podcast in playable_podcast1:
+    for podcast in playable_DN1:
         items.append({
             'label': podcast['title'],
             'thumbnail': podcast['thumbnail'],
@@ -39,17 +44,19 @@ def compile_playable_podcast1(playable_podcast1):
     })
     return items
 
-def get_playable_podcast2(soup1):
+def get_playable_DN2(soup2):
     subjects = []
-    for content in soup1.find_all('item'):
+    for content in soup2.find_all('item', limit=50):
         try:
             link = content.find('enclosure')
             link = link.get('url')
             print("\n\nLink: ", link)
             title = content.find('title')
             title = title.get_text()
-            thumbnail = content.find('itunes:image')
-            thumbnail = thumbnail.get('href')
+            webexclusive = content.find('category')
+            webexclusive = webexclusive.get_text()
+            thumbnail = content.find('media:thumbnail')
+            thumbnail = thumbnail.get('url')
         except AttributeError:
             continue
         item = {
@@ -59,9 +66,9 @@ def get_playable_podcast2(soup1):
         }
         subjects.append(item)
     return subjects
-def compile_playable_podcast2(playable_podcast2):
+def compile_playable_DN2(playable_DN2):
     items = []
-    for podcast in playable_podcast2:
+    for podcast in playable_DN2:
         items.append({
             'label': podcast['title'],
             'thumbnail': podcast['thumbnail'],

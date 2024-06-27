@@ -15,11 +15,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgctxt "#30001"
-msgid "Latest episodes"
+msgid "Democracy Now! - daily news"
 msgstr ""
 
 msgctxt "#30002"
-msgid "All episodes"
+msgid "Democracy Now! - web exclusives"
 msgstr ""
 
 msgctxt "#30003"
